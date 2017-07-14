@@ -307,11 +307,11 @@ void UKF::Update(MeasurementPackage measurement_pack, MatrixXd Zsig) {
   if(measurement_pack.sensor_type_ == MeasurementPackage::RADAR && use_radar_) {
     R <<  std_radr_*std_radr_, 0, 0,
           0, std_radphi_*std_radphi_, 0,
-          0, 0,std_radrd_*std_radrd_;
+          0, 0, std_radrd_*std_radrd_;
   }
   else if(measurement_pack.sensor_type_ == MeasurementPackage::LASER && use_laser_) {
-    R <<  std_laspx_*std_laspx_,0,
-          0,std_laspy_*std_laspy_;
+    R <<  std_laspx_*std_laspx_, 0,
+          0, std_laspy_*std_laspy_;
   }
   
   S = S + R;
